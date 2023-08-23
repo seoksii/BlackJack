@@ -37,6 +37,42 @@ public class Card
 
     public override string ToString()
     {
-        return $"{Rank} of {Suit}";
+        string symbol = string.Empty;
+        switch (this.Suit)
+        {
+            case Suit.Hearts:
+                symbol = "♥";
+                break;
+            case Suit.Diamonds:
+                symbol = "◆";
+                break;
+            case Suit.Clubs:
+                symbol = "♣";
+                break;
+            case Suit.Spades:
+                symbol = "♠";
+                break;
+            default: throw new InvalidDataException();
+        }
+        string denom = string.Empty;
+        switch (this.Rank)
+        {
+            case Rank.Ace:
+                denom = "A";
+                break;
+            case Rank.King:
+                denom = "K";
+                break;
+            case Rank.Queen:
+                denom = "Q";
+                break;
+            case Rank.Jack:
+                denom = "J";
+                break;
+            default:
+                denom = ((int)Rank).ToString("");
+                break;
+        }
+        return $"{symbol} {denom, 2}";
     }
 }

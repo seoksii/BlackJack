@@ -41,4 +41,14 @@ public class Hand
 
         return total;
     }
+
+    public override string ToString()
+    {
+        if (cards.Count == 0) return string.Empty;
+
+        string str = "";
+        foreach (Card card in cards)
+            str += $"[ {card.ToString()} ]  ";
+        return str;
+    }
 }
